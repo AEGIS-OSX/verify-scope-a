@@ -1,52 +1,38 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* ==========================================================================
-   KettleCraft Design Tokens — Matte Industrial
-   All colors expressed as oklch(...) inside CSS custom properties.
-   No hardcoded hex literals anywhere in this block, including comments
-   and fallback values.
-   ========================================================================== */
-
+/* ============================================================
+   KettleCraft Design System — Color Tokens (Matte Industrial)
+   Every color is expressed as oklch(...) inside a CSS custom
+   property declaration. No hex literals anywhere in this block,
+   including comments and fallback values.
+   ============================================================ */
 :root {
-  /* Color: Canvas / Surface */
-  --color-canvas: oklch(0.16 0 0);
-  --color-surface: oklch(0.20 0 0);
+  /* Canvas (BG): Near-black matte */
+  --color-canvas: oklch(0.148 0 0);
+  /* Surface: Subtle lift */
+  --color-surface: oklch(0.183 0 0);
+  /* Iron (Primary Text): Bone off-white */
+  --color-iron: oklch(0.918 0.008 80);
+  /* Charcoal (Secondary Text): Mid-gray */
+  --color-charcoal: oklch(0.626 0 0);
+  /* Rust (Accent): Oxidized rust */
+  --color-rust: oklch(0.458 0.132 35);
+  /* Rust hover state */
+  --color-rust-hover: oklch(0.383 0.108 34);
+  /* Divider: Structural rule */
+  --color-divider: oklch(0.257 0 0);
 
-  /* Color: Text */
-  --color-iron: oklch(0.92 0.012 90);
-  --color-charcoal: oklch(0.63 0 0);
+  /* Semantic aliases */
+  --color-bg: var(--color-canvas);
+  --color-text: var(--color-iron);
+  --color-text-muted: var(--color-charcoal);
+  --color-accent: var(--color-rust);
+  --color-accent-hover: var(--color-rust-hover);
+  --color-border: var(--color-divider);
 
-  /* Color: Accent */
-  --color-rust: oklch(0.48 0.14 37);
-  --color-rust-hover: oklch(0.41 0.11 37);
-
-  /* Color: Structural */
-  --color-divider: oklch(0.28 0 0);
-
-  /* Typography */
-  --font-display: "Migra", "Instrument Serif", serif;
-  --font-body: "Sohne", "Geist Sans", sans-serif;
-  --font-mono: "Berkeley Mono", monospace;
-
-  --type-h1-size: 72px;
-  --type-h1-line-height: 0.95;
-  --type-h1-tracking: -0.03em;
-
-  --type-h2-size: 36px;
-  --type-h2-line-height: 1.0;
-  --type-h2-tracking: -0.02em;
-
-  --type-body-size: 17px;
-  --type-body-line-height: 1.53;
-  --type-body-tracking: 0;
-
-  --type-label-size: 13px;
-  --type-label-line-height: 1.38;
-  --type-label-tracking: 0.08em;
-
-  --type-mono-size: 14px;
-
-  /* Spacing (8px base unit) */
+  /* Spacing scale (8px base) */
   --space-0: 0px;
   --space-1: 4px;
   --space-2: 8px;
@@ -57,84 +43,10 @@
   --space-7: 64px;
   --space-8: 80px;
   --space-9: 128px;
-
-  /* Breakpoints (reference only; enforced via media/container queries) */
-  --bp-mobile: 375px;
-  --bp-tablet: 768px;
-  --bp-desktop: 1440px;
-
-  /* Component: CTA Button */
-  --cta-bg: var(--color-rust);
-  --cta-bg-hover: var(--color-rust-hover);
-  --cta-text: var(--color-iron);
-  --cta-radius: 0px;
-  --cta-height: 48px;
-
-  /* Component: Rules */
-  --rule-width: 1px;
-  --rule-color: var(--color-divider);
 }
 
+html,
 body {
   background-color: var(--color-canvas);
   color: var(--color-iron);
-  font-family: var(--font-body);
-  font-size: var(--type-body-size);
-  line-height: var(--type-body-line-height);
-  letter-spacing: var(--type-body-tracking);
-  font-weight: 400;
-  font-display: swap;
-}
-
-h1 {
-  font-family: var(--font-display);
-  font-size: var(--type-h1-size);
-  line-height: var(--type-h1-line-height);
-  letter-spacing: var(--type-h1-tracking);
-  text-transform: lowercase;
-  font-weight: 700;
-}
-
-h2 {
-  font-family: var(--font-display);
-  font-size: var(--type-h2-size);
-  line-height: var(--type-h2-line-height);
-  letter-spacing: var(--type-h2-tracking);
-  font-weight: 700;
-}
-
-.label {
-  font-size: var(--type-label-size);
-  line-height: var(--type-label-line-height);
-  letter-spacing: var(--type-label-tracking);
-  text-transform: uppercase;
-}
-
-.rule {
-  border-top: var(--rule-width) solid var(--rule-color);
-}
-
-.cta-button {
-  background-color: var(--cta-bg);
-  color: var(--cta-text);
-  border-radius: var(--cta-radius);
-  height: var(--cta-height);
-  border: none;
-  cursor: pointer;
-  transition: background-color 200ms ease-out;
-}
-
-.cta-button:hover {
-  background-color: var(--cta-bg-hover);
-}
-
-.cta-button:focus-visible {
-  outline: 2px solid var(--color-iron);
-  outline-offset: 2px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .cta-button {
-    transition: none;
-  }
 }
