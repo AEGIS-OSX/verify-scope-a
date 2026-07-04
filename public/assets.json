@@ -1,37 +1,37 @@
 {
   "logo": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/verify-scope-a/cleo/1783166530818-logo.png",
+    "alt": "A minimalist, flat vector logo mark for KettleCraft. It features a geometric anvil-kettlebell hybrid in bone white (#E8E4DC) with a single rust (#9B3A1E) structural accent, set against a matte near-bl",
     "width": 1024,
     "height": 1024
   },
   "hero": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/verify-scope-a/cleo/1783166378067-hero.png",
+    "alt": "A single hand-forged kettlebell on raw concrete, captured with hard directional lighting to emphasize its matte iron texture and industrial weight. The composition uses a near-black #0D0D0D palette to",
     "width": 1920,
     "height": 1080
   },
   "feature_1": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/verify-scope-a/cleo/1783166372952-feature_1.png",
+    "alt": "A macro shot of molten iron hitting a sand mold, emphasizing the 'hand-poured' craft. The high-contrast lighting and raw textures align with the 'Weight of Intent' industrial aesthetic.",
     "width": 800,
     "height": 600
   },
   "feature_2": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/verify-scope-a/cleo/1783166374167-feature_2.png",
+    "alt": "A macro shot of a hand-forged iron handle, emphasizing the tactile 'Weight of Intent' through hard rim lighting and raw material texture. It supports the 'lifetime warranty' feature by visually commun",
     "width": 800,
     "height": 600
   },
   "feature_3": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/verify-scope-a/cleo/1783166400975-feature_3.png",
+    "alt": "A macro texture study of hand-forged iron, emphasizing the 'permanent' and 'heavy' brand pillars through raw metallic grain and a single oxidized rust accent. The hard side-lighting and matte finish a",
     "width": 800,
     "height": 600
   },
   "social_proof": {
-    "url": "",
-    "alt": "",
+    "url": "https://zkvkbpxrxnfynqqeytke.supabase.co/storage/v1/object/public/marketing-assets/verify-scope-a/cleo/1783166659800-social_proof.png",
+    "alt": "A macro shot of hand-forged iron texture with a subtle rust accent, designed to serve as a tactile background for the testimonial section. It reinforces the 'Weight of Intent' through hard lighting an",
     "width": 1200,
     "height": 800
   }
