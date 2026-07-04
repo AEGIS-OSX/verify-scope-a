@@ -27,7 +27,7 @@
 
   /* Typography */
   --font-display: "Migra", "Instrument Serif", Georgia, serif;
-  --font-body: "S\u00f6hne", "Geist Sans", system-ui, sans-serif;
+  --font-body: "Söhne", "Geist Sans", system-ui, sans-serif;
   --font-mono: "Berkeley Mono", "Geist Mono", ui-monospace, monospace;
 
   /* Type scale */
@@ -58,7 +58,7 @@
   --duration-ui: 150ms;
   --duration-spatial: 600ms;
 
-  /* Border radius — zero throughout (industrial, no softness) */
+  /* Border radius -- zero throughout (industrial, no softness) */
   --radius: 0px;
   --radius-sm: 0px;
   --radius-md: 0px;
