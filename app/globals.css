@@ -1,199 +1,140 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   KettleCraft Design Tokens
-   Matte Industrial — color system expressed entirely in oklch.
-   No hex values appear anywhere in this file.
+   KettleCraft Design Tokens — Matte Industrial
+   All colors expressed as oklch(...) inside CSS custom properties.
+   No hardcoded hex literals anywhere in this block, including comments
+   and fallback values.
    ========================================================================== */
 
 :root {
-  /* --- Color Palette --- */
+  /* Color: Canvas / Surface */
+  --color-canvas: oklch(0.16 0 0);
+  --color-surface: oklch(0.20 0 0);
 
-  /* Canvas: near-black matte background */
-  --color-canvas: oklch(16.0% 0 0);
+  /* Color: Text */
+  --color-iron: oklch(0.92 0.012 90);
+  --color-charcoal: oklch(0.63 0 0);
 
-  /* Surface: subtle lift above canvas */
-  --color-surface: oklch(20.0% 0 0);
+  /* Color: Accent */
+  --color-rust: oklch(0.48 0.14 37);
+  --color-rust-hover: oklch(0.41 0.11 37);
 
-  /* Iron: bone off-white, primary text */
-  --color-iron: oklch(91.8% 0.013 79);
+  /* Color: Structural */
+  --color-divider: oklch(0.28 0 0);
 
-  /* Charcoal: mid-gray, secondary text */
-  --color-charcoal: oklch(63.3% 0 0);
-
-  /* Rust: oxidized rust accent */
-  --color-rust: oklch(48.3% 0.137 37);
-
-  /* Rust hover: darker rust for interactive states */
-  --color-rust-hover: oklch(40.8% 0.111 37);
-
-  /* Divider: structural rule */
-  --color-divider: oklch(28.5% 0 0);
-
-  /* --- Typography Scale --- */
-
-  /* Display: Migra 700, fallback Instrument Serif 700 */
+  /* Typography */
   --font-display: "Migra", "Instrument Serif", serif;
-  --font-display-weight: 700;
-
-  /* Body: Söhne 300/400, fallback Geist Sans */
-  --font-body: "Söhne", "Geist Sans", sans-serif;
-
-  /* Mono: Berkeley Mono 400 */
+  --font-body: "Sohne", "Geist Sans", sans-serif;
   --font-mono: "Berkeley Mono", monospace;
 
-  /* Type sizes */
-  --text-h1: 4.5rem;       /* 72px */
-  --text-h2: 2.25rem;      /* 36px */
-  --text-body: 1.0625rem;  /* 17px */
-  --text-label: 0.8125rem; /* 13px */
-  --text-mono: 0.875rem;   /* 14px */
+  --type-h1-size: 72px;
+  --type-h1-line-height: 0.95;
+  --type-h1-tracking: -0.03em;
 
-  /* Line heights */
-  --lh-h1: 0.95;
-  --lh-h2: 1.0;
-  --lh-body: 1.53;
-  --lh-label: 1.38;
+  --type-h2-size: 36px;
+  --type-h2-line-height: 1.0;
+  --type-h2-tracking: -0.02em;
 
-  /* Letter spacing */
-  --ls-h1: -0.03em;
-  --ls-h2: -0.02em;
-  --ls-body: 0;
-  --ls-label: 0.08em;
+  --type-body-size: 17px;
+  --type-body-line-height: 1.53;
+  --type-body-tracking: 0;
 
-  /* --- Spacing Scale (8px base) --- */
-  --space-0: 0;
-  --space-1: 0.25rem;  /* 4px */
-  --space-2: 0.5rem;   /* 8px */
-  --space-4: 1rem;     /* 16px */
-  --space-6: 1.5rem;   /* 24px */
-  --space-8: 2rem;     /* 32px */
-  --space-12: 3rem;    /* 48px */
-  --space-16: 4rem;    /* 64px */
-  --space-20: 5rem;    /* 80px */
-  --space-32: 8rem;    /* 128px */
+  --type-label-size: 13px;
+  --type-label-line-height: 1.38;
+  --type-label-tracking: 0.08em;
 
-  /* --- Component Tokens --- */
+  --type-mono-size: 14px;
 
-  /* CTA Button */
-  --btn-cta-bg: var(--color-rust);
-  --btn-cta-bg-hover: var(--color-rust-hover);
-  --btn-cta-text: var(--color-iron);
-  --btn-cta-radius: 0px;
-  --btn-cta-height: 3rem; /* 48px */
+  /* Spacing (8px base unit) */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+  --space-8: 80px;
+  --space-9: 128px;
 
-  /* Rules / Dividers */
+  /* Breakpoints (reference only; enforced via media/container queries) */
+  --bp-mobile: 375px;
+  --bp-tablet: 768px;
+  --bp-desktop: 1440px;
+
+  /* Component: CTA Button */
+  --cta-bg: var(--color-rust);
+  --cta-bg-hover: var(--color-rust-hover);
+  --cta-text: var(--color-iron);
+  --cta-radius: 0px;
+  --cta-height: 48px;
+
+  /* Component: Rules */
   --rule-width: 1px;
-  --rule-style: solid;
   --rule-color: var(--color-divider);
-}
-
-/* ==========================================================================
-   Base Reset
-   ========================================================================== */
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
-  scroll-behavior: smooth;
 }
 
 body {
   background-color: var(--color-canvas);
   color: var(--color-iron);
   font-family: var(--font-body);
-  font-size: var(--text-body);
-  line-height: var(--lh-body);
-  letter-spacing: var(--ls-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: var(--type-body-size);
+  line-height: var(--type-body-line-height);
+  letter-spacing: var(--type-body-tracking);
+  font-weight: 400;
+  font-display: swap;
 }
 
-/* ==========================================================================
-   Typography Utilities
-   ========================================================================== */
-
-.text-h1 {
+h1 {
   font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-  font-size: var(--text-h1);
-  line-height: var(--lh-h1);
-  letter-spacing: var(--ls-h1);
+  font-size: var(--type-h1-size);
+  line-height: var(--type-h1-line-height);
+  letter-spacing: var(--type-h1-tracking);
   text-transform: lowercase;
+  font-weight: 700;
 }
 
-.text-h2 {
+h2 {
   font-family: var(--font-display);
-  font-weight: var(--font-display-weight);
-  font-size: var(--text-h2);
-  line-height: var(--lh-h2);
-  letter-spacing: var(--ls-h2);
+  font-size: var(--type-h2-size);
+  line-height: var(--type-h2-line-height);
+  letter-spacing: var(--type-h2-tracking);
+  font-weight: 700;
 }
 
-.text-label {
-  font-family: var(--font-body);
-  font-size: var(--text-label);
-  line-height: var(--lh-label);
-  letter-spacing: var(--ls-label);
+.label {
+  font-size: var(--type-label-size);
+  line-height: var(--type-label-line-height);
+  letter-spacing: var(--type-label-tracking);
   text-transform: uppercase;
 }
 
-.text-mono {
-  font-family: var(--font-mono);
-  font-size: var(--text-mono);
+.rule {
+  border-top: var(--rule-width) solid var(--rule-color);
 }
 
-/* ==========================================================================
-   Component Utilities
-   ========================================================================== */
-
-.btn-cta {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: var(--btn-cta-bg);
-  color: var(--btn-cta-text);
-  border-radius: var(--btn-cta-radius);
-  height: var(--btn-cta-height);
-  padding-inline: var(--space-8);
-  font-family: var(--font-body);
-  font-size: var(--text-label);
-  letter-spacing: var(--ls-label);
-  text-transform: uppercase;
+.cta-button {
+  background-color: var(--cta-bg);
+  color: var(--cta-text);
+  border-radius: var(--cta-radius);
+  height: var(--cta-height);
   border: none;
   cursor: pointer;
-  transition: background-color 150ms ease-out;
+  transition: background-color 200ms ease-out;
 }
 
-.btn-cta:hover {
-  background-color: var(--btn-cta-bg-hover);
+.cta-button:hover {
+  background-color: var(--cta-bg-hover);
 }
 
-.btn-cta:focus-visible {
+.cta-button:focus-visible {
   outline: 2px solid var(--color-iron);
   outline-offset: 2px;
 }
 
-.rule {
-  border: none;
-  border-top: var(--rule-width) var(--rule-style) var(--rule-color);
-}
-
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  .cta-button {
+    transition: none;
   }
 }
