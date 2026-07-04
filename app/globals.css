@@ -1,12 +1,19 @@
+/* KettleCraft Design Tokens — all colors expressed as oklch() custom properties */
 :root {
-  /* KettleCraft Design Tokens */
-  --canvas: oklch(5% 0 0);
-  --surface: oklch(9% 0 0);
-  --iron: oklch(91% 0.008 80);
-  --charcoal: oklch(57% 0 0);
-  --rust: oklch(38% 0.12 35);
-  --rust-hover: oklch(31% 0.10 35);
-  --divider: oklch(18% 0 0);
+  /* Canvas: near-black matte background */
+  --color-canvas: oklch(5.1% 0 0);
+  /* Surface: subtle lift above canvas */
+  --color-surface: oklch(8.4% 0 0);
+  /* Iron: bone off-white primary text */
+  --color-iron: oklch(91.2% 0.008 95);
+  /* Charcoal: mid-gray secondary text */
+  --color-charcoal: oklch(57.4% 0 0);
+  /* Rust: oxidized rust accent */
+  --color-rust: oklch(43.1% 0.131 35.8);
+  /* Rust hover: darker rust for interactive states */
+  --color-rust-hover: oklch(35.2% 0.108 35.8);
+  /* Divider: structural rule */
+  --color-divider: oklch(16.8% 0 0);
 }
 
 * {
@@ -20,8 +27,8 @@ html {
 }
 
 body {
-  background-color: var(--canvas);
-  color: var(--iron);
+  background-color: var(--color-canvas);
+  color: var(--color-iron);
   font-family: 'Söhne', 'Geist Sans', system-ui, sans-serif;
   font-weight: 400;
   font-size: 17px;
