@@ -1,58 +1,48 @@
-/* KettleCraft — Global Stylesheet
-   Design tokens and base resets.
-   No hex literals. All values via CSS custom properties.
-*/
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@layer base {
-  :root {
-    /* Color tokens */
-    --color-canvas:  #0D0D0D;
-    --color-surface: #161616;
-    --color-iron:    #E8E4DC;
-    --color-charcoal: #8A8A8A;
-    --color-rust:    #9B3A1E;
-    --color-rust-hover: #7A2E18;
-    --color-divider: #2A2A2A;
+/* ============================================================
+   KettleCraft Design Tokens
+   ============================================================ */
+:root {
+  /* Colors */
+  --color-canvas:   #0D0D0D;
+  --color-surface:  #161616;
+  --color-iron:     #E8E4DC;
+  --color-charcoal: #8A8A8A;
+  --color-rust:     #9B3A1E;
+  --color-rust-hover: #7A2E18;
+  --color-divider:  #2A2A2A;
 
-    /* Typography tokens */
-    --font-display: 'Migra', 'Instrument Serif', Georgia, serif;
-    --font-body:    'Söhne', 'Geist Sans', system-ui, sans-serif;
-    --font-mono:    'Berkeley Mono', 'Fira Code', monospace;
+  /* Typography */
+  --font-display: 'Migra', 'Instrument Serif', Georgia, serif;
+  --font-body:    'Söhne', 'Geist Sans', system-ui, sans-serif;
+  --font-mono:    'Berkeley Mono', 'Fira Code', monospace;
 
-    /* Type scale */
-    --text-h1:    4.5rem;   /* 72px */
-    --text-h2:    2.25rem;  /* 36px */
-    --text-body:  1.0625rem; /* 17px */
-    --text-label: 0.8125rem; /* 13px */
-    --text-mono:  0.875rem;  /* 14px */
+  /* Type scale */
+  --text-h1:    72px;
+  --text-h2:    36px;
+  --text-body:  17px;
+  --text-label: 13px;
+  --text-mono:  14px;
 
-    /* Spacing scale (8pt base) */
-    --space-0:   0;
-    --space-1:   0.25rem;  /* 4px */
-    --space-2:   0.5rem;   /* 8px */
-    --space-4:   1rem;     /* 16px */
-    --space-6:   1.5rem;   /* 24px */
-    --space-8:   2rem;     /* 32px */
-    --space-12:  3rem;     /* 48px */
-    --space-16:  4rem;     /* 64px */
-    --space-20:  5rem;     /* 80px */
-    --space-32:  8rem;     /* 128px */
-
-    /* Component tokens */
-    --radius-btn: 0px;
-    --height-btn: 3rem; /* 48px */
-  }
+  /* Spacing (8pt scale) */
+  --space-0:   0px;
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   16px;
+  --space-4:   24px;
+  --space-5:   32px;
+  --space-6:   48px;
+  --space-7:   64px;
+  --space-8:   80px;
+  --space-9:   128px;
 }
 
-/* Base reset */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
+/* ============================================================
+   Base Reset
+   ============================================================ */
 html,
 body {
   overflow-x: clip;
@@ -65,20 +55,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-img,
-video {
-  display: block;
-  max-width: 100%;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 a {
   color: inherit;
   text-decoration: none;
-}
-
-button {
-  cursor: pointer;
-  border: none;
-  background: none;
-  font: inherit;
 }
