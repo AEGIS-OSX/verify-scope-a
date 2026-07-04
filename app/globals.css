@@ -1,71 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;0,700;1,400&family=Geist+Sans:wght@300;400&family=Geist+Mono:wght@400&display=swap');
+/* KettleCraft — Global Stylesheet
+   Design tokens and base resets.
+   No hex literals. All values via CSS custom properties.
+*/
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@layer base {
+  :root {
+    /* Color tokens */
+    --color-canvas:  #0D0D0D;
+    --color-surface: #161616;
+    --color-iron:    #E8E4DC;
+    --color-charcoal: #8A8A8A;
+    --color-rust:    #9B3A1E;
+    --color-rust-hover: #7A2E18;
+    --color-divider: #2A2A2A;
 
-/* KettleCraft Design Tokens */
-:root {
-  /* Legacy aliases (kept for backward compat) */
-  --color-primary: #E8E4DC;
-  --color-accent: #9B3A1E;
-  --color-bg: #0D0D0D;
-  --color-text: #E8E4DC;
-  --color-muted: #9B3A1E;
-  --color-border: #2A2A2A;
-  --space-base: 8px;
+    /* Typography tokens */
+    --font-display: 'Migra', 'Instrument Serif', Georgia, serif;
+    --font-body:    'Söhne', 'Geist Sans', system-ui, sans-serif;
+    --font-mono:    'Berkeley Mono', 'Fira Code', monospace;
 
-  /* Color */
-  --color-canvas: oklch(10.2% 0.005 60);       /* #0D0D0D near-black matte */
-  --color-surface: oklch(12.8% 0.005 60);      /* #161616 subtle lift */
-  --color-iron: oklch(91.5% 0.008 75);         /* #E8E4DC bone off-white */
-  --color-charcoal: oklch(58.5% 0.005 60);     /* #8A8A8A mid-gray */
-  --color-rust: oklch(38.2% 0.12 35);          /* #9B3A1E oxidized rust */
-  --color-rust-hover: oklch(31.5% 0.11 35);    /* #7A2E18 rust hover */
-  --color-divider: oklch(20.5% 0.005 60);      /* #2A2A2A structural rule */
-  --color-focus: oklch(91.5% 0.008 75);        /* focus ring = iron */
+    /* Type scale */
+    --text-h1:    4.5rem;   /* 72px */
+    --text-h2:    2.25rem;  /* 36px */
+    --text-body:  1.0625rem; /* 17px */
+    --text-label: 0.8125rem; /* 13px */
+    --text-mono:  0.875rem;  /* 14px */
 
-  /* Typography */
-  --font-display: "Migra", "Instrument Serif", Georgia, serif;
-  --font-body: "Söhne", "Geist Sans", system-ui, sans-serif;
-  --font-mono: "Berkeley Mono", "Geist Mono", ui-monospace, monospace;
+    /* Spacing scale (8pt base) */
+    --space-0:   0;
+    --space-1:   0.25rem;  /* 4px */
+    --space-2:   0.5rem;   /* 8px */
+    --space-4:   1rem;     /* 16px */
+    --space-6:   1.5rem;   /* 24px */
+    --space-8:   2rem;     /* 32px */
+    --space-12:  3rem;     /* 48px */
+    --space-16:  4rem;     /* 64px */
+    --space-20:  5rem;     /* 80px */
+    --space-32:  8rem;     /* 128px */
 
-  /* Type scale */
-  --text-display: 4.5rem;     /* 72px */
-  --text-display-s: 3rem;     /* 48px */
-  --text-display-xs: 2.25rem; /* 36px */
-  --text-h2: 2.25rem;         /* 36px */
-  --text-h2-m: 1.75rem;       /* 28px */
-  --text-h2-s: 1.375rem;      /* 22px */
-  --text-body: 1.0625rem;     /* 17px */
-  --text-label: 0.8125rem;    /* 13px */
-  --text-mono: 0.875rem;      /* 14px */
-
-  /* Spacing (8px base) */
-  --space-1: 0.25rem;   /* 4px */
-  --space-2: 0.5rem;    /* 8px */
-  --space-3: 1rem;      /* 16px */
-  --space-4: 1.5rem;    /* 24px */
-  --space-5: 2rem;      /* 32px */
-  --space-6: 3rem;      /* 48px */
-  --space-7: 4rem;      /* 64px */
-  --space-8: 5rem;      /* 80px */
-  --space-9: 8rem;      /* 128px */
-
-  /* Motion */
-  --ease-out: cubic-bezier(0.0, 0.0, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
-  --duration-ui: 150ms;
-  --duration-spatial: 600ms;
-
-  /* Border radius -- zero throughout (industrial, no softness) */
-  --radius: 0px;
-  --radius-sm: 0px;
-  --radius-md: 0px;
-  --radius-lg: 0px;
+    /* Component tokens */
+    --radius-btn: 0px;
+    --height-btn: 3rem; /* 48px */
+  }
 }
 
 /* Base reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 html,
 body {
   overflow-x: clip;
@@ -78,83 +65,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
+img,
+video {
+  display: block;
+  max-width: 100%;
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* Focus ring global */
-:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 2px;
-}
-
-/* Display heading base */
-.kc-display {
-  font-family: var(--font-display);
-  font-weight: 700;
-  overflow-wrap: anywhere;
-  min-width: 0;
-}
-
-/* CTA button */
-.kc-btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 48px;
-  padding: 0 var(--space-5);
-  background-color: var(--color-rust);
-  color: var(--color-iron);
-  font-family: var(--font-body);
-  font-size: var(--text-label);
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+a {
+  color: inherit;
   text-decoration: none;
-  border-radius: var(--radius);
-  border: none;
+}
+
+button {
   cursor: pointer;
-  white-space: nowrap;
-  outline: 2px solid transparent;
-  outline-offset: 1px;
-  transition: background-color var(--duration-ui) var(--ease-out);
-}
-.kc-btn-primary:hover {
-  background-color: var(--color-rust-hover);
-}
-.kc-btn-primary:focus-visible {
-  outline: 2px solid var(--color-focus);
-  outline-offset: 2px;
-}
-.kc-btn-primary:active {
-  background-color: var(--color-rust-hover);
-  transform: scale(0.98);
-}
-
-/* Label utility */
-.kc-label {
-  font-family: var(--font-body);
-  font-size: var(--text-label);
-  font-weight: 400;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.38;
-  color: var(--color-charcoal);
-}
-
-/* Divider rule */
-.kc-rule {
   border: none;
-  border-top: 1px solid var(--color-divider);
+  background: none;
+  font: inherit;
 }
